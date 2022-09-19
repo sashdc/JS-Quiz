@@ -6,11 +6,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Bootcamp Javascript Quiz</title>
     <link rel="stylesheet" href="./assets/css/style.css">
+    <script defer src="./assets/js/script.js"></script>
 </head>
 <body>
     <div class="quizcontainer">
         <div id = "questioncontainer" class="hide">
-            <div id = "question">Question</div>
+            <div id = "question">QUESTION?</div>
             <div id = "answerbuttons" class = "answergrid">
                 <button class="button">Answer 1</button>
                 <button class="button">Answer 2</button>
@@ -19,8 +20,9 @@
             </div>
         </div> 
         <div class ="controls">
-            <button id="startbutton" class="startbutton button">Start</button>
+            <button id="startbtn" class="startbutton button">Start</button>
             <button id="nextbutton" class="nextbutton button hide">Next</button>
+            <div id="timer"></div>
         </div>
         <div id="resultwrong" class="hide" > WRONG!</div>
         <div id="resultcorrect" class="hide"> CORRECT!!</div>
