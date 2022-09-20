@@ -5,11 +5,11 @@ let questionElement = document.getElementById('question')
 let answerButtonElement = document.getElementById("answerbuttons")
 let currentQuestion = 0
 let score = 0
-let timeLeft = 0
-let resultEl = document.getElementById("result");
+let timeLeft = 60
+let resultEl = document.getElementById("result")
 
 
-
+// starts the game: hides the start button, loads a question, and starts the timer
 function startGame(){
     startButton.classList.add('hide')
     quizBox.classList.remove('hide')
@@ -20,14 +20,12 @@ function startGame(){
 
     // sets timer and calls time up messsage function when time has elapsed
 function startTimer(){
-    let timeLeft=60;
     timer.textContent = "60 seconds remaining"
     let timerApp = setInterval(function(){
         timeLeft--;
         timer.textContent = `${timeLeft}  seconds remaining`;
         
         if (timeLeft === 0) {
-        // clearInterval(timerApp);
         timesUp()
         }
     },1000)
@@ -36,13 +34,23 @@ function startTimer(){
 
     // clears board and begins hi-score collection when time is up
 function timesUp(){
-    quizBox.classList.add ()
     quizBox.innerText = "Game Over"
+    quizBox.classList.add('over')
     timer.textContent = ""
     resultEl.classList.add("hide")
     timer.classList.add('hide')
+    console.log(score)
     scoreBoard()
 }
+
+function scoreBoard(){
+    let playerName = document.getElementById(playerName)
+    let playerScore = {
+        Name : playerName.value,
+        score : score.value
+    }
+   console.log(playerScore)
+    }
 
 
 function showQuestion(question){
@@ -62,7 +70,7 @@ function showQuestion(question){
           });
           answerEl.classList.add('answerbutton')
           answerButtonElement.appendChild(answerEl);
-        }
+                  }
       } else {
         timesUp()
         // timeRemaining = 0;
@@ -76,13 +84,14 @@ showQuestion()
 
 function selectAnswer(answer, questionIndex) {
     let resultEl = document.getElementById("result");
+    resultEl.classList.remove("incorrectresult", "corresctresult")
     if (questions[questionIndex].correctAnswer === answer) {
       resultEl.textContent = `Correct`;
       resultEl.classList.add("correctresult")
       score++;
     } else {
       resultEl.textContent = `Incorrect`;
-      resultEl.classList.add("incorrectresult")
+      resultEl.classList.add("incorrectresult");
       timeLeft -= 10;
     }
   }
@@ -92,7 +101,7 @@ const questions = [
     {
       question: "Javascript adds what to a web page?",
       correctAnswer: "Interactivity",
-      answers: ["Caffiene", "Interactivity", "Aesthetics", "Structure"],
+      answers: ["Caffeine", "Interactivity", "Aesthetics", "Structure"],
     },
     {
       question: "Which data type has values of True and False?",
