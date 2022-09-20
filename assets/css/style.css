@@ -18,7 +18,7 @@ background-color: rgb(224, 148, 49);
     /* height: 400px; */
     border-radius: 10px ;
     background-color: antiquewhite;
-    padding: 5%;
+    padding: 45px 20px 20px 20px;
     box-shadow: 0 0 33px 7px darkslategrey;
 }
 
@@ -30,8 +30,9 @@ background-color: rgb(224, 148, 49);
 }
 
 #question{
-    font-size: larger;
+    font-size: 45px;
    font-weight: bolder;
+    text-align: center;
 }
 
 .button{
@@ -66,4 +67,9 @@ background-color: rgb(224, 148, 49);
     display: none;
 }
 
+#timer{
+    font-weight: bolder;
+    font-size: 30px;
+    color: ;
+}
 

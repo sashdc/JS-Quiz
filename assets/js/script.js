@@ -11,21 +11,34 @@ function startGame(){
     startButton.classList.add('hide')
     quizBox.classList.remove('hide')
     nextQuestion()
+    startTimer()
     }
+
+    // sets timer and calls time up messsage function when time has elapsed
+function startTimer(){
+    let timeLeft=60;
+    timer.textContent = "60 seconds remaining"
+    let timerApp = setInterval(function(){
+        timeLeft--;
+        timer.textContent = `${timeLeft}  seconds remaining`;
+        
+        if (timeLeft === 0) {
+        clearInterval(timerApp);
+        timesUp()
+        }
+    },1000)
+    }
+
+    // clears board and begins hi-score collection when time is up
+function timesUp(){
+    quizBox.innerText = "Game Over"
+    timer.textContent = ""
+    scoreBoard()
+}
 
 function showQuestion(question){
     questionElement.innerText = questions[0].question;
-    // questions.answers.array.forEach(answer => {
-    //     let button = document.createElement('button')
-    //     button.innerText = answer.text
-    //     button.classList.add('button')
-    //     if (answer.correct) {
-    //         button.dataset.correct = answer.correct
-    //     }
-        
-        
-        
-    // });
+    // answerButtonElement.innerText = questions.answers;
     
 }
 
