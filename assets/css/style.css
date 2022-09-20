@@ -22,7 +22,7 @@ background-color: rgb(224, 148, 49);
     box-shadow: 0 0 33px 7px darkslategrey;
 }
 
-.answergrid{
+.answergrid,{
     display: grid;
     grid-template-columns: repeat(2, auto);
     gap: 20px;
@@ -56,6 +56,8 @@ background-color: rgb(224, 148, 49);
     padding: 20px 40px;
     box-shadow: 0 0 5px 2px grey;
 }
+
+
 
 .controls{
     display: flex;
