@@ -60,7 +60,7 @@ function showQuestion(question){
             currentQuestion++;
             nextQuestion();
           });
-          answerEl.classList.add('button')
+          answerEl.classList.add('answerbutton')
           answerButtonElement.appendChild(answerEl);
         }
       } else {
@@ -78,9 +78,11 @@ function selectAnswer(answer, questionIndex) {
     let resultEl = document.getElementById("result");
     if (questions[questionIndex].correctAnswer === answer) {
       resultEl.textContent = `Correct`;
+      resultEl.classList.add("correctresult")
       score++;
     } else {
       resultEl.textContent = `Incorrect`;
+      resultEl.classList.add("incorrectresult")
       timeLeft -= 10;
     }
   }
