@@ -1,4 +1,5 @@
 const startButton = document.getElementById("startbtn")
+let restartButton=document.getElementById("restartbtn")
 let timer = document.getElementById("timer")
 let quizBox = document.getElementById("questioncontainer")
 let questionElement = document.getElementById('question')
@@ -7,10 +8,12 @@ let currentQuestion = 0
 let score = 0
 let timeLeft = 60
 let resultEl = document.getElementById("result")
+let scoreCard = document.getElementById("scorecard")
 
 
 // starts the game: hides the start button, loads a question, and starts the timer
 function startGame(){
+  localStorage.getItem("Player1")
     startButton.classList.add('hide')
     quizBox.classList.remove('hide')
     nextQuestion()
@@ -42,15 +45,18 @@ function timesUp(){
     console.log(score)
     scoreBoard()
 }
-
+// collect user initials and tie to score
 function scoreBoard(){
-    let playerName = document.getElementById(playerName)
-    let playerScore = {
-        Name : playerName.value,
-        score : score.value
+    let playerName = window.prompt("Player Name")
+    let playerDetails = {
+      userName: playerName,
+      playerScore:  score,
     }
-   console.log(playerScore)
-    }
+    localStorage.setItem("Player1", JSON.stringify(playerDetails))
+    scoreCard.textContent = playerName + score
+    restartButton.classList.remove('hide')
+  }
+    
 
 
 function showQuestion(question){
@@ -73,7 +79,6 @@ function showQuestion(question){
                   }
       } else {
         timesUp()
-        // timeRemaining = 0;
       }
     }
 
@@ -125,5 +130,7 @@ const questions = [
       }
   ];
 
-
+restartButton.classList.add('hide')
 startButton.addEventListener("click", startGame);
+restartButton.addEventListener("click", startGame);
+

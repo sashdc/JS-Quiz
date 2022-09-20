@@ -59,7 +59,7 @@ background-color: rgb(224, 148, 49);
     cursor: pointer;
 }
 
-#startbtn {
+#startbtn, #restartbtn {
     font-size: 50px;
     background-color: green;
     border-color: darkgreen;
@@ -110,3 +110,5 @@ background-color: rgb(224, 148, 49);
     color: teal;
 }
 
+.scorecard{;
+}
