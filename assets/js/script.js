@@ -56,7 +56,7 @@ function timesUp(){
 function scoreBoard(){
   scoreCard.classList.remove("hide")
   scoreSave.addEventListener('click', savePlayerscore)
-  showScoreEl.textContent = "Your Score is " + score
+  showScoreEl.textContent = `Well done! You got ${score}  point(s)!`
       }
     
 function savePlayerscore(){
@@ -103,14 +103,27 @@ function selectAnswer(answer, questionIndex) {
     let resultEl = document.getElementById("result");
     resultEl.classList.remove("incorrectresult", "correctresult")
     if (questions[questionIndex].correctAnswer === answer) {
+      resultEl.style.display="block";
       resultEl.textContent = `Correct`;
       resultEl.classList.add("correctresult")
       score++;
+      
     } else {
+      resultEl.style.display="block";
       resultEl.textContent = `Incorrect  -10s`;
       resultEl.classList.add("incorrectresult");
       timeLeft -= 10;
     }
+    let time = 1;
+        let startTimer = setInterval(function() {
+        time--;
+        if (time == 0){
+            resultEl.style.display="none";
+            clearInterval(startTimer);
+        }
+        
+    }, 1000);
+
   }
 
 
