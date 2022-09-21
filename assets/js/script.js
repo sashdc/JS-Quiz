@@ -9,11 +9,18 @@ let score = 0
 let timeLeft = 60
 let resultEl = document.getElementById("result")
 let scoreCard = document.getElementById("scorecard")
-
+let scoreSave = document.getElementById("scoresavebutton")
+let inputInitial = document.getElementById("inputName")
+let showScoreEl = document.getElementById("details")
+let scoreList = []
+// if there is a stored list it gets the items 
+if (localStorage.getItem("Player1") !== null){
+  scoreList=JSON.parse(localStorage.getItem("Player1"))
+}
 
 // starts the game: hides the start button, loads a question, and starts the timer
 function startGame(){
-  localStorage.getItem("Player1")
+    localStorage.getItem("Player1")
     startButton.classList.add('hide')
     quizBox.classList.remove('hide')
     nextQuestion()
@@ -37,7 +44,7 @@ function startTimer(){
 
     // clears board and begins hi-score collection when time is up
 function timesUp(){
-    quizBox.innerText = "Game Over"
+    quizBox.innerText = "Game Over! \n Thanks for Playing!"
     quizBox.classList.add('over')
     timer.textContent = ""
     resultEl.classList.add("hide")
@@ -45,26 +52,30 @@ function timesUp(){
     console.log(score)
     scoreBoard()
 }
-// collect user initials and tie to score
+// collect user initials and binds it to score
 function scoreBoard(){
-    let playerName = window.prompt("Player Name")
-    let playerDetails = {
-      userName: playerName,
+  scoreCard.classList.remove("hide")
+  scoreSave.addEventListener('click', savePlayerscore)
+  showScoreEl.textContent = "Your Score is " + score
+      }
+    
+function savePlayerscore(){
+console.log(inputInitial.value)
+   let playerDetails = {
+      userName: inputInitial.value,
       playerScore:  score,
     }
-    localStorage.setItem("Player1", JSON.stringify(playerDetails))
-    scoreCard.textContent = playerName + score
+    scoreList.push(playerDetails)
+    localStorage.setItem("Player1", JSON.stringify(scoreList))
     restartButton.classList.remove('hide')
+    restartButton.addEventListener("click", startGame);
   }
-    
-
 
 function showQuestion(question){
     if (currentQuestion < questions.length) {
         let questionObject = questions[currentQuestion];
         questionElement.textContent = questionObject.question;
     
-        // const answersEl = document.getElementById("answers");
         answerButtonElement.innerHTML = "";
         for (let i = 0; i < questionObject.answers.length; i++) {
           let answerEl = document.createElement("li");
@@ -87,19 +98,22 @@ function nextQuestion(){
 showQuestion()
 }
 
+//sets it to equate the answer selected with the correct answer and return correct or incorrect while removing 10s for wrng answers
 function selectAnswer(answer, questionIndex) {
     let resultEl = document.getElementById("result");
-    resultEl.classList.remove("incorrectresult", "corresctresult")
+    resultEl.classList.remove("incorrectresult", "correctresult")
     if (questions[questionIndex].correctAnswer === answer) {
       resultEl.textContent = `Correct`;
       resultEl.classList.add("correctresult")
       score++;
     } else {
-      resultEl.textContent = `Incorrect`;
+      resultEl.textContent = `Incorrect  -10s`;
       resultEl.classList.add("incorrectresult");
       timeLeft -= 10;
     }
   }
+
+
 
 // Question and answer array(s)
 const questions = [
@@ -132,5 +146,4 @@ const questions = [
 
 restartButton.classList.add('hide')
 startButton.addEventListener("click", startGame);
-restartButton.addEventListener("click", startGame);
 

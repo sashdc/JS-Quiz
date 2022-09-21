@@ -1,28 +1,29 @@
-*{box-sizing: border-box;
-    font-family:Arial, Helvetica, sans-serif, sans-serif;
+* {
+    box-sizing: border-box;
+    font-family: Arial, Helvetica, sans-serif, sans-serif;
 }
 
-body{
-display: flex;
-margin: 0%;
-padding: 0%;
-justify-content: center;
-align-items: center;
-width: 100vw;
-height: 100vh;
-background-color: rgb(224, 148, 49);
+body {
+    display: flex;
+    margin: 0%;
+    padding: 0%;
+    justify-content: center;
+    align-items: center;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgb(228, 163, 79);
 }
 
-.quizcontainer{
+.quizcontainer {
     width: 600px;
-    border-radius: 10px ;
+    border-radius: 10px;
     background-color: antiquewhite;
     padding: 45px 20px 20px 20px;
     box-shadow: 0 0 33px 7px darkslategrey;
 }
 
 
-.answerbutton{
+.answerbutton {
     border: 2px dashed darkslategrey;
     border-radius: 10px;
     background-color: rgb(224, 148, 49);
@@ -32,37 +33,40 @@ background-color: rgb(224, 148, 49);
     list-style: none;
     margin: 20px;
     text-align: center;
-    cursor:pointer
+    cursor: pointer
 }
 
-#question{
+#question {
     font-size: 45px;
-   font-weight: bolder;
+    font-weight: bolder;
     text-align: center;
 }
 
-.over, .result{
+.over,
+.result {
     font-size: 60px;
     color: white;
-    background-color:red;
+    background-color: red;
     border-radius: 30px;
     text-align: center;
-    padding : 30px;
+    padding: 30px;
     margin: 30px;
     box-shadow: rgb(85, 91, 255) 0px 0px 0px 3px, rgb(31, 193, 27) 0px 0px 0px 6px, rgb(255, 217, 19) 0px 0px 0px 9px, rgb(255, 156, 85) 0px 0px 0px 12px, rgb(255, 85, 85) 0px 0px 0px 15px;
 }
 
 
-.answerbutton:hover, #startbtn:hover{
+.answerbutton:hover,
+#startbtn:hover {
     border: solid white 2px;
     box-shadow: 0 0 10px black;
     cursor: pointer;
 }
 
-#startbtn, #restartbtn {
+#startbtn,
+#restartbtn {
     font-size: 50px;
-    background-color: green;
-    border-color: darkgreen;
+    background-color: rgb(59, 163, 59);
+    border-color: rgb(167, 236, 167);
     font-weight: bolder;
     padding: 30px 40px;
     border-radius: 70px;
@@ -70,7 +74,7 @@ background-color: rgb(224, 148, 49);
     text-align: center;
 }
 
-.correctresult{
+.correctresult {
     color: white;
     background-color: green;
     border-radius: 20px;
@@ -78,11 +82,10 @@ background-color: rgb(224, 148, 49);
     font-weight: 800;
     text-align: center;
     margin-top: 15px;
-    padding: 0%
-    ;
+    padding: 0%;
 }
 
-.incorrectresult{
+.incorrectresult {
     color: white;
     background-color: red;
     border-radius: 20px;
@@ -90,25 +93,28 @@ background-color: rgb(224, 148, 49);
     font-weight: 800;
     text-align: center;
     margin-top: 15px;
-    padding: 0%
-    ;
+    padding: 0%;
 }
 
-.controls{
+.controls {
     display: flex;
     justify-content: center;
     align-items: center;
 }
 
-.hide{
+.hide {
     display: none;
 }
 
-#timer{
+#timer {
     font-weight: bolder;
     font-size: 30px;
     color: teal;
 }
 
-.scorecard{;
+#scorecard {
+    color: red;
+    text-align: center;
+    font-size: 15px;
+    padding-top: 20px;
 }

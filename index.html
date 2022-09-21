@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -8,22 +9,29 @@
     <link rel="stylesheet" href="./assets/css/style.css">
     <script defer src="./assets/js/script.js"></script>
 </head>
+
 <body>
     <div class="quizcontainer">
-        <div id = "questioncontainer" class="hide">
-            <div id = "question">QUESTION?</div>
-            <div id = "answerbuttons">
-              
+        <div id="questioncontainer" class="hide">
+            <div id="question">QUESTION?</div>
+            <div id="answerbuttons">
+
             </div>
-        </div> 
-        <div class ="controls">
+        </div>
+        <div class="controls">
             <button id="startbtn" class="startbutton button">Start</button>
             <button id="restartbtn" class="restartbutton button">Restart</button>
             <div id="timer"></div>
         </div>
         <div id="result"></div>
-        <div id="scorecard"></div>
+        <div class="hide" id="scorecard">
+            <h2 id="details">High Score</h2>
+            <h2>Enter Initials</h2>
+            <input id="inputName" />
+            <button id="scoresavebutton">submit</button>
+        </div>
     </div>
-    
+
 </body>
+
 </html>
