@@ -131,3 +131,13 @@ body {
     font-size: 15px;
     padding-top: 20px;
 }
+
+#highscoretable{
+    background-color: antiquewhite;
+    color: black;
+    font-size: larger;
+    font-family: monospace;
+    justify-content: center;
+    margin: auto;
+    margin-top: 20px;
+}

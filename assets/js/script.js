@@ -71,8 +71,39 @@ console.log(inputInitial.value)
     localStorage.setItem("Player1", JSON.stringify(scoreList));
     // restartButton.classList.remove('hide');
     // restartButton.addEventListener("click", startGame());
-    //creating a table
+    generateTable()  
   }
+
+// Makes highscore table
+function generateTableHead(table, data) {
+  let thead = table.createTHead();
+  let row = thead.insertRow();
+  for (let key of data) {
+    let th = document.createElement("th");
+    let text = document.createTextNode(key);
+    th.appendChild(text);
+    row.appendChild(th);
+  }
+}
+
+function generateTable(table, data) {
+  for (let element of data) {
+    let row = table.insertRow();
+    for (key in element) {
+      let cell = row.insertCell();
+      let text = document.createTextNode(element[key]);
+      cell.appendChild(text);
+    }
+  }
+}
+
+let table = document.querySelector("table");
+let data = Object.keys(scoreList[0]);
+generateTableHead(table, data);
+generateTable(table, scoreList);
+
+
+
 //shows question and answer buttons
 function showQuestion(question){
     if (currentQuestion < questions.length) {
@@ -86,13 +117,13 @@ function showQuestion(question){
           answerEl.addEventListener("click", () => {
             selectAnswer(questionObject.answers[i], currentQuestion);
             currentQuestion++;
-            nextQuestion();
+            setTimeout(nextQuestion, 1000)
           });
           answerEl.classList.add('answerbutton')
           answerButtonElement.appendChild(answerEl);
                   }
       } else {
-        setTimeout(timesUp, 1000);
+        timesUp();
       }
     }
 
