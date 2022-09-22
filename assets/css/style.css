@@ -67,7 +67,7 @@ body {
 
 
 .answerbutton:hover,
-#startbtn:hover, #restartbtn:hover {
+#startbtn:hover{
     border: solid white 2px;
     box-shadow: 0 0 10px black;
     cursor: pointer;

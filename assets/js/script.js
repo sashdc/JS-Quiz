@@ -1,5 +1,4 @@
 const startButton = document.getElementById("startbtn")
-let restartButton=document.getElementById("restartbtn")
 let welcomeEl = document.getElementById("welcome")
 let timer = document.getElementById("timer")
 let quizBox = document.getElementById("questioncontainer")
@@ -198,5 +197,4 @@ const questions = [
       }
   ];
 
-restartButton.classList.add('hide')
 startButton.addEventListener("click", startGame);
