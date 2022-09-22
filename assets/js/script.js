@@ -17,6 +17,7 @@ let scoreList = []
 if (localStorage.getItem("Player1") !== null){
   scoreList=JSON.parse(localStorage.getItem("Player1"))
 }
+let highScore = document.getElementById('highscoretable')
 
 // starts the game: hides the start button, loads a question, and starts the timer
 function startGame(){
@@ -49,7 +50,6 @@ function timesUp(){
     timer.textContent = ""
     resultEl.classList.add("hide")
     timer.classList.add('hide')
-    console.log(score)
     scoreBoard()
 }
 // collect user initials and binds it to score
@@ -65,10 +65,11 @@ console.log(inputInitial.value)
       userName: inputInitial.value,
       playerScore:  score,
     }
-    scoreList.push(playerDetails)
-    localStorage.setItem("Player1", JSON.stringify(scoreList))
-    restartButton.classList.remove('hide')
-    restartButton.addEventListener("click", startGame);
+    scoreList.push(playerDetails);
+    localStorage.setItem("Player1", JSON.stringify(scoreList));
+    // restartButton.classList.remove('hide');
+    // restartButton.addEventListener("click", startGame());
+    //creating a table
   }
 
 function showQuestion(question){
@@ -89,7 +90,7 @@ function showQuestion(question){
           answerButtonElement.appendChild(answerEl);
                   }
       } else {
-        timesUp()
+        setTimeout(timesUp, 1000);
       }
     }
 
@@ -101,7 +102,7 @@ showQuestion()
 //sets it to equate the answer selected with the correct answer and return correct or incorrect while removing 10s for wrng answers
 function selectAnswer(answer, questionIndex) {
     let resultEl = document.getElementById("result");
-    resultEl.classList.remove("incorrectresult", "correctresult")
+    resultEl.classList.remove("incorrectresult", "correctresult");
     if (questions[questionIndex].correctAnswer === answer) {
       resultEl.style.display="block";
       resultEl.textContent = `Correct`;
@@ -117,7 +118,7 @@ function selectAnswer(answer, questionIndex) {
     let time = 1;
         let startTimer = setInterval(function() {
         time--;
-        if (time == 0){
+        if (time <= 0){
             resultEl.style.display="none";
             clearInterval(startTimer);
         }
@@ -131,7 +132,7 @@ function selectAnswer(answer, questionIndex) {
 // Question and answer array(s)
 const questions = [
     {
-      question: "Javascript adds what to a web page?",
+      question: "What does Javascript add to a web page?",
       correctAnswer: "Interactivity",
       answers: ["Caffeine", "Interactivity", "Aesthetics", "Structure"],
     },
@@ -146,17 +147,26 @@ const questions = [
       answers: ["A pie", "Application Programming Interface", "App Parsing Interaction", "Arrays, Programs, and Internet"],
     },
     {
-      question: "A for loop is an example of...",
-      correctAnswer: "Iteration",
-      answers: ["Iteration", "Cereal", "Highway detail", "Array"],
+      question: "What does HTML stand for?",
+      correctAnswer: "Hyper Text Markup Language",
+      answers: ["Hyper Text Markup Language", "Hot Tamales", "Hyperlink To Mail", "Hi Tech Mail Language"],
     },
     {
         question: "When in doubt, you should look in the...",
         correctAnswer: "DevTools",
         answers: ["Cupboard", "Mirror", "Future", "DevTools"],
+      },
+      {
+        question: "JQuery, Bootstrap, and Moments are examples of....",
+        correctAnswer: "3rd Part APIs",
+        answers: ["Social Media Platforms", "3rd Part APIs", "Word Salads", "Local Storages"],
+      },
+      {
+        question: "Which property allows you to identify each element by a unique name?",
+        correctAnswer: "ID",
+        answers: ["ID", "Variable", "Form", "Pointer"],
       }
   ];
 
 restartButton.classList.add('hide')
 startButton.addEventListener("click", startGame);
-
