@@ -38,7 +38,7 @@ function startTimer(){
         timeLeft--;
         timer.textContent = `${timeLeft}  seconds remaining`;
         
-        if (timeLeft === 0) {
+        if (timeLeft <= 0) {
         timesUp()
         }
     },1000)
@@ -69,9 +69,8 @@ console.log(inputInitial.value)
     }
     scoreList.push(playerDetails);
     localStorage.setItem("Player1", JSON.stringify(scoreList));
-    // restartButton.classList.remove('hide');
-    // restartButton.addEventListener("click", startGame());
-    generateTable()  
+    generateTableHead(table, data);
+    generateTable(table, scoreList)  
   }
 
 // Makes highscore table
@@ -99,8 +98,6 @@ function generateTable(table, data) {
 
 let table = document.querySelector("table");
 let data = Object.keys(scoreList[0]);
-generateTableHead(table, data);
-generateTable(table, scoreList);
 
 
 
