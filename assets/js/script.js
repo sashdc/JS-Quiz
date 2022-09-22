@@ -73,7 +73,7 @@ console.log(inputInitial.value)
     // restartButton.addEventListener("click", startGame());
     //creating a table
   }
-
+//shows question and answer buttons
 function showQuestion(question){
     if (currentQuestion < questions.length) {
         let questionObject = questions[currentQuestion];
@@ -110,7 +110,7 @@ function selectAnswer(answer, questionIndex) {
       resultEl.textContent = `Correct`;
       resultEl.classList.add("correctresult")
       score++;
-      
+      //displays correct or incorrect notification for 1 second
     } else {
       resultEl.style.display="block";
       resultEl.textContent = `Incorrect  -10s`;
