@@ -1,4 +1,4 @@
-#  Module 3 : Javasript: Random Password Generator
+#  Module 4 : Javascript: Coding Quiz App
 
 ## Overview
 
@@ -14,13 +14,13 @@ The page loads upon landing and the game and timer begin by clicking the start b
 
 At the end of the game your score is displayed as well as the ability to enter your name which will be tied to your score in local storage.
 
-![Screenshot of full working page](./assets/images/03-javascript-homework-demo.png "Random Password Generator")
+![Screenshots of full working page at different stages](./assets/images/screenshot.jpg "Coding Quiz app")
 
 ### Links
 
- [Github Page](https://sashdc.github.io/PasswordGenerator/)
+ [Github Page](https://sashdc.github.io/JS-Quiz/)
  
- [Github Repo](https://github.com/sashdc/PasswordGenerator)
+ [Github Repo](https://github.com/sashdc/JS-Quiz)
 
  ## Credits
 
