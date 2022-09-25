@@ -16,7 +16,7 @@ let scoreList = []
 // if there is a stored list it gets the items 
 if (localStorage.getItem("Player1") !== null){
   scoreList=JSON.parse(localStorage.getItem("Player1"))
-}
+  }
 let highScore = document.getElementById('highscoretable')
 
 // starts the game: hides the start button, loads a question, and starts the timer
@@ -96,8 +96,7 @@ function generateTable(table, data) {
 }
 
 let table = document.querySelector("table");
-let data = Object.keys(scoreList[0]);
-
+let data = ("");
 
 
 //shows question and answer buttons

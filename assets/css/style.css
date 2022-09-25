@@ -14,6 +14,10 @@ body {
     background-color: rgb(228, 163, 79);
 }
 
+h5 {
+justify-content: center;
+}
+
 .quizcontainer {
     display: flex;
     flex-direction: column;
@@ -133,7 +137,8 @@ body {
 }
 
 #highscoretable{
-    background-color: antiquewhite;
+    background-color: white;
+    width: 80%;
     color: black;
     font-size: larger;
     font-weight: bolder;
@@ -142,3 +147,5 @@ body {
     margin: auto;
     margin-top: 20px;
 }
+
+#highscoretable tr:nth-child(even){background-color: #f2f2f2;
